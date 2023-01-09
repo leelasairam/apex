@@ -7,16 +7,16 @@ public with sharing class NewsClass {
         Http http = new Http();
         HttpRequest request = new HttpRequest();
         if(Country=='' && Category==''){
-            request.setEndpoint('https://newsapi.org/v2/top-headlines?language=en&apiKey=c61cdd58146c4813aa0d466ba1a30348');
+            request.setEndpoint(url);
         }
         else if(Country!='' && Category==''){
-            request.setEndpoint('https://newsapi.org/v2/top-headlines?country='+Country+'&language=en&apiKey=c61cdd58146c4813aa0d466ba1a30348');
+            request.setEndpoint(url);
         }
         else if(Country=='' && Category!=''){
-            request.setEndpoint('https://newsapi.org/v2/top-headlines?category='+Category+'&language=en&apiKey=c61cdd58146c4813aa0d466ba1a30348');
+            request.setEndpoint(url);
         }
         else{
-            request.setEndpoint('https://newsapi.org/v2/top-headlines?country='+Country+'&category='+Category+'&language=en&apiKey=c61cdd58146c4813aa0d466ba1a30348');
+            request.setEndpoint(url);
         }
         request.setMethod('GET');
         HttpResponse response = http.send(request);
@@ -29,7 +29,7 @@ public with sharing class NewsClass {
     public static Object GetWeather(String Area){
         Http http = new Http();
         HttpRequest request = new HttpRequest();
-        request.setEndpoint('http://api.weatherapi.com/v1/forecast.json?key=849974a6644d4f7a85394252220102&q='+Area+'&days=3&aqi=no&alerts=no');
+        request.setEndpoint(url);
         request.setMethod('GET');
         HttpResponse response = http.send(request);
         Object Info = JSON.deserializeUntyped(response.getBody());

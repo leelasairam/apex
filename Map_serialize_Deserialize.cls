@@ -13,7 +13,19 @@ for(Id i : m.keySet()){
 }
 
 
+Map<String, String> countriesToCapitals = new Map<String, String> {
+    'England' => 'London',
+    'USA' => 'Washington',
+    'Netherlands' => 'Amsterdam'
+  };
+  
+String dutchCapital = contriesToCapitals.get('Netherlands'); // Get the value of the key "Netherlands" which sets the String as "Amsterdam".
+  
+ System.debug(dutchCapital);
 
+
+
+ 
 List<Account> ls = [select Id,Name from Account Limit 5];
 Map<Id, Account> m = new Map<Id, Account>(ls);
 system.debug(m);
